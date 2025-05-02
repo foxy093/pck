@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* seu CSS continua igual */
+    /* Seu CSS igualzinho */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -71,6 +71,23 @@
       color: #28a745;
       margin-bottom: 20px;
     }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background-color: #ff6f61;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e6554b;
+    }
     footer {
       background-color: #262626;
       color: white;
@@ -112,27 +129,21 @@
       <h2>Basic Pack</h2>
       <p>Get access to 400GB of high-quality content, with photos and videos.</p>
       <p class="price">$5</p>
-      <!-- Mercado Pago botão para Basic Pack -->
-      <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-      data-preference-id="1981102814-346baa28-4771-48fd-b651-a9e1e9508896" data-source="button"></script>
+      <button class="btn" onclick="pay('1981102814-346baa28-4771-48fd-b651-a9e1e9508896')">Buy Now</button>
     </div>
 
     <div class="tile">
       <h2>Standard Pack</h2>
       <p>Enjoy 2TB of exclusive content.</p>
       <p class="price">$8</p>
-      <!-- Mercado Pago botão para Standard Pack -->
-      <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-      data-preference-id="1981102814-388db8a4-86e0-4218-aef5-c6452983da2c" data-source="button"></script>
+      <button class="btn" onclick="pay('1981102814-388db8a4-86e0-4218-aef5-c6452983da2c')">Buy Now</button>
     </div>
 
     <div class="tile">
       <h2>Premium Pack</h2>
       <p>Access over 4TB of premium content.</p>
       <p class="price">$12</p>
-      <!-- Mercado Pago botão para Premium Pack -->
-      <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-      data-preference-id="1981102814-4aa1af44-155b-4f61-ba46-05fd49b42abe" data-source="button"></script>
+      <button class="btn" onclick="pay('1981102814-4aa1af44-155b-4f61-ba46-05fd49b42abe')">Buy Now</button>
     </div>
   </div>
 </main>
@@ -140,6 +151,24 @@
 <footer>
   &copy; 2025 Premium Services. All Rights Reserved.
 </footer>
+
+<!-- Mercado Pago SDK -->
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+  // Inicializa o MercadoPago SDK
+  const mp = new MercadoPago('YOUR_PUBLIC_KEY_HERE', {
+    locale: 'en-US' // ou 'pt-BR' se preferir
+  });
+
+  function pay(preferenceId) {
+    mp.checkout({
+      preference: {
+        id: preferenceId
+      },
+      autoOpen: true // abre direto o checkout
+    });
+  }
+</script>
 
 </body>
 </html>
