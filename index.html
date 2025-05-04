@@ -14,136 +14,191 @@
       color: #333;
       line-height: 1.6;
     }
-    header, footer {
+    header {
       background-color: #262626;
       color: white;
       padding: 20px;
       text-align: center;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    .footer-links {
-      margin-top: 10px;
+    nav {
+      background: #333;
+      padding: 10px;
+      text-align: center;
     }
-    .footer-links a {
-      color: #ccc;
+    nav a {
+      color: white;
       margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
       font-size: 0.9rem;
-      text-decoration: underline;
-      cursor: pointer;
     }
     main, section {
-      padding: 50px 20px;
       display: none;
+      padding: 50px 20px;
+    }
+    main.active, section.active {
+      display: block;
     }
     .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       justify-items: center;
     }
     .tile {
-      background: white;
+      background-color: white;
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 350px;
+      transition: transform 0.4s ease-in-out, box-shadow 0.4s ease;
       width: 100%;
+      max-width: 350px;
+    }
+    .tile:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    .tile h2 {
+      font-size: 1.7rem;
+      color: #ff6f61;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tile p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #555;
+      line-height: 1.8;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #28a745;
+      margin-bottom: 20px;
     }
     .btn {
+      display: inline-block;
       padding: 12px 30px;
-      background: #ff6f61;
-      color: white;
-      border: none;
       border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
+      background-color: #ff6f61;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
       text-transform: uppercase;
-      margin-top: 10px;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e6554b;
+    }
+    footer {
+      background-color: #262626;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #ff6f61;
+      text-decoration: underline;
+      margin: 0 5px;
     }
   </style>
 </head>
 
 <body>
+
 <header>
   Premium Service Packs
 </header>
 
-<main id="home">
+<nav>
+  <a href="#" onclick="showSection('home')">Home</a>
+  <a href="#" onclick="showSection('terms')">Terms</a>
+  <a href="#" onclick="showSection('privacy')">Privacy</a>
+  <a href="#" onclick="showSection('refund')">Refund</a>
+</nav>
+
+<main id="home" class="active" style="display: block;">
   <div class="container">
-    <!-- Basic Pack -->
     <div class="tile">
       <h2>Basic Pack</h2>
       <p>Get access to 400GB of high-quality content, with photos and videos.</p>
       <p class="price">$5</p>
-      <button class="btn" onclick="PaddleCheckout('pro_01jtc5eagv87rpmrcjrq9ya093')">Buy Now</button>
+      <button class="btn" onclick="buyNow('pro_01jtc5eagv87rpmrcjrq9ya093')">Buy Now</button>
     </div>
 
-    <!-- Standard Pack -->
     <div class="tile">
       <h2>Standard Pack</h2>
       <p>Enjoy 2TB of exclusive content.</p>
       <p class="price">$8</p>
-      <button class="btn" onclick="PaddleCheckout('pro_01jtc5v0pczpyq39jrejv5k2rs')">Buy Now</button>
+      <button class="btn" onclick="buyNow('pro_01jtc5v0pczpyq39jrejv5k2rs')">Buy Now</button>
     </div>
 
-    <!-- Premium Pack -->
     <div class="tile">
       <h2>Premium Pack</h2>
-      <p>Access over 4TB of premium content.</p>
+      <p>Access over 4TB of premium content and more.</p>
       <p class="price">$12</p>
-      <button class="btn" onclick="PaddleCheckout('pro_01jtc5vzhkhmdgeher8ry5avx7')">Buy Now</button>
+      <button class="btn" onclick="buyNow('pro_01jtc5vzhkhmdgeher8ry5avx7')">Buy Now</button>
     </div>
   </div>
 </main>
 
 <section id="terms">
   <h2>Terms of Service</h2>
-  <p>By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations. Use of our service is at your own risk. We reserve the right to change or update these terms at any time without prior notice.</p>
+  <p>By accessing our site and purchasing our services, you agree to be bound by these Terms of Service and all applicable laws and regulations. You are responsible for compliance with any applicable local laws.</p>
 </section>
 
 <section id="privacy">
   <h2>Privacy Policy</h2>
-  <p>We respect your privacy. We collect only necessary personal information required to complete your purchase and provide our services. Your data will never be sold or shared with third parties except as needed to process payments.</p>
+  <p>Your privacy is important to us. We do not share or sell your personal information. All data collected is strictly used to fulfill your purchase and provide customer service.</p>
 </section>
 
 <section id="refund">
   <h2>Refund Policy</h2>
-  <p>All sales are final. Refunds are only provided if there is a technical issue that prevents access to the purchased content. If you experience any issues, please contact support within 7 days of purchase for assistance.</p>
+  <p>Due to the nature of digital goods, we do not offer refunds once the content has been accessed or downloaded. If you encounter any problems, please contact our support team.</p>
 </section>
 
 <footer>
-  &copy; 2025 Premium Services. All Rights Reserved.
-  <div class="footer-links">
-    <a onclick="showSection('terms')">Terms of Service</a>
-    |
-    <a onclick="showSection('privacy')">Privacy Policy</a>
-    |
-    <a onclick="showSection('refund')">Refund Policy</a>
-  </div>
+  &copy; 2025 Premium Services. 
+  <a href="#" onclick="showSection('terms')">Terms</a> | 
+  <a href="#" onclick="showSection('privacy')">Privacy</a> | 
+  <a href="#" onclick="showSection('refund')">Refund</a>
 </footer>
 
 <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
 <script>
-Paddle.Setup({ vendor: YOUR_VENDOR_ID }); // Substituir pelo seu Vendor ID real
+  Paddle.Environment.set('sandbox'); // Trocar para 'production' depois
+  Paddle.Setup({ vendor: YOUR_VENDOR_ID });
 
-function PaddleCheckout(productId) {
-  Paddle.Checkout.open({
-    product: productId
-  });
-}
+  function buyNow(productId) {
+    Paddle.Checkout.open({
+      product: productId
+    });
+  }
 
-function showSection(sectionId) {
-  document.getElementById('home').style.display = 'none';
-  document.getElementById('terms').style.display = 'none';
-  document.getElementById('privacy').style.display = 'none';
-  document.getElementById('refund').style.display = 'none';
-
-  document.getElementById(sectionId).style.display = 'block';
-  window.scrollTo(0,0);
-}
-
-// Por padrão, mostrar a home
-showSection('home');
+  function showSection(id) {
+    document.querySelectorAll('main, section').forEach(section => {
+      section.style.display = 'none';
+      section.classList.remove('active');
+    });
+    document.getElementById(id).style.display = 'block';
+    document.getElementById(id).classList.add('active');
+  }
 </script>
+
 </body>
 </html>
