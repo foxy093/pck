@@ -1,170 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Service Packs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background: linear-gradient(135deg, #f0f0f0, #e1e1e1);
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #262626;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        main {
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
-        }
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            justify-items: center;
-        }
-        .tile {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease;
-            width: 100%;
-            max-width: 350px;
-        }
-        .tile:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-        .tile h2 {
-            font-size: 1.7rem;
-            color: #ff6f61;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .tile p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: #555;
-            line-height: 1.8;
-        }
-        .price {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 30px;
-            background-color: #ff6f61;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #e6554b;
-        }
-        footer {
-            background-color: #262626;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.9rem;
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .tile {
-            animation: fadeIn 0.8s ease both;
-        }
-        .container .tile:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .container .tile:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Service Packs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f0f0f0, #e1e1e1);
+      color: #333;
+      line-height: 1.6;
+    }
+    header, footer {
+      background-color: #262626;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .footer-links {
+      margin-top: 10px;
+    }
+    .footer-links a {
+      color: #ccc;
+      margin: 0 10px;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    main, section {
+      padding: 50px 20px;
+      display: none;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+    .tile {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+    }
+    .btn {
+      padding: 12px 30px;
+      background: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-<body>
 
+<body>
 <header>
-    Premium Service Packs
+  Premium Service Packs
 </header>
 
-<main>
-    <div class="container">
-
-        <div class="tile">
-            <h2>Basic Pack</h2>
-            <p>Get access to 400GB of high-quality content, with photos and videos.</p>
-            <p class="price">$5</p>
-            <button class="btn" onclick="payWithMercadoPago('1981102814-346baa28-4771-48fd-b651-a9e1e9508896')">
-                Buy Now
-            </button>
-        </div>
-
-        <div class="tile">
-            <h2>Standard Pack</h2>
-            <p>Enjoy 2TB of exclusive content (lxli,incest and R4pe) .</p>
-            <p class="price">$8</p>
-            <button class="btn" onclick="payWithMercadoPago('1981102814-388db8a4-86e0-4218-aef5-c6452983da2c')">
-                Buy Now
-            </button>
-        </div>
-
-        <div class="tile">
-            <h2>Premium Pack</h2>
-            <p>Access over 4TB of premium content (lxli,incest,R4pe,Gay,shxta,b4by).</p>
-            <p class="price">$12</p>
-            <button class="btn" onclick="payWithMercadoPago('1981102814-4aa1af44-155b-4f61-ba46-05fd49b42abe')">
-                Buy Now
-            </button>
-        </div>
-
+<main id="home">
+  <div class="container">
+    <!-- Basic Pack -->
+    <div class="tile">
+      <h2>Basic Pack</h2>
+      <p>Get access to 400GB of high-quality content, with photos and videos.</p>
+      <p class="price">$5</p>
+      <button class="btn" onclick="PaddleCheckout('pro_01jtc5eagv87rpmrcjrq9ya093')">Buy Now</button>
     </div>
+
+    <!-- Standard Pack -->
+    <div class="tile">
+      <h2>Standard Pack</h2>
+      <p>Enjoy 2TB of exclusive content.</p>
+      <p class="price">$8</p>
+      <button class="btn" onclick="PaddleCheckout('pro_01jtc5v0pczpyq39jrejv5k2rs')">Buy Now</button>
+    </div>
+
+    <!-- Premium Pack -->
+    <div class="tile">
+      <h2>Premium Pack</h2>
+      <p>Access over 4TB of premium content.</p>
+      <p class="price">$12</p>
+      <button class="btn" onclick="PaddleCheckout('pro_01jtc5vzhkhmdgeher8ry5avx7')">Buy Now</button>
+    </div>
+  </div>
 </main>
 
+<section id="terms">
+  <h2>Terms of Service</h2>
+  <p>By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations. Use of our service is at your own risk. We reserve the right to change or update these terms at any time without prior notice.</p>
+</section>
+
+<section id="privacy">
+  <h2>Privacy Policy</h2>
+  <p>We respect your privacy. We collect only necessary personal information required to complete your purchase and provide our services. Your data will never be sold or shared with third parties except as needed to process payments.</p>
+</section>
+
+<section id="refund">
+  <h2>Refund Policy</h2>
+  <p>All sales are final. Refunds are only provided if there is a technical issue that prevents access to the purchased content. If you experience any issues, please contact support within 7 days of purchase for assistance.</p>
+</section>
+
 <footer>
-    &copy; 2025 Premium Services. All Rights Reserved.
+  &copy; 2025 Premium Services. All Rights Reserved.
+  <div class="footer-links">
+    <a onclick="showSection('terms')">Terms of Service</a>
+    |
+    <a onclick="showSection('privacy')">Privacy Policy</a>
+    |
+    <a onclick="showSection('refund')">Refund Policy</a>
+  </div>
 </footer>
 
+<script src="https://cdn.paddle.com/paddle/paddle.js"></script>
 <script>
-function payWithMercadoPago(preferenceId) {
-    const checkoutUrl = `https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=${preferenceId}`;
-    window.location.href = checkoutUrl;
-}
-</script>
+Paddle.Setup({ vendor: YOUR_VENDOR_ID }); // Substituir pelo seu Vendor ID real
 
+function PaddleCheckout(productId) {
+  Paddle.Checkout.open({
+    product: productId
+  });
+}
+
+function showSection(sectionId) {
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('terms').style.display = 'none';
+  document.getElementById('privacy').style.display = 'none';
+  document.getElementById('refund').style.display = 'none';
+
+  document.getElementById(sectionId).style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+// Por padrão, mostrar a home
+showSection('home');
+</script>
 </body>
 </html>
