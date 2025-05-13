@@ -138,29 +138,43 @@
       <h2>Basic Pack</h2>
       <p>Get access to 400GB of high-quality content, with photos and videos.</p>
       <p class="price">$5</p>
-      <button class="btn" onclick="buyNow('pro_01jtc5eagv87rpmrcjrq9ya093')">Buy Now</button>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="business" value="EXJY54QGZJMR2" />
+        <input type="hidden" name="amount" value="5" />
+        <input type="hidden" name="no_recurring" value="0" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <button type="submit" class="btn">Buy Now</button>
+      </form>
     </div>
 
     <div class="tile">
       <h2>Standard Pack</h2>
       <p>Enjoy 2TB of exclusive content.</p>
       <p class="price">$8</p>
-      <button class="btn" onclick="buyNow('pro_01jtc5v0pczpyq39jrejv5k2rs')">Buy Now</button>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="business" value="EXJY54QGZJMR2" />
+        <input type="hidden" name="amount" value="8" />
+        <input type="hidden" name="no_recurring" value="0" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <button type="submit" class="btn">Buy Now</button>
+      </form>
     </div>
 
     <div class="tile">
       <h2>Premium Pack</h2>
       <p>Access over 4TB of premium content and more.</p>
       <p class="price">$12</p>
-      <button class="btn" onclick="buyNow('pro_01jtc5vzhkhmdgeher8ry5avx7')">Buy Now</button>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="business" value="EXJY54QGZJMR2" />
+        <input type="hidden" name="amount" value="12" />
+        <input type="hidden" name="no_recurring" value="0" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <button type="submit" class="btn">Buy Now</button>
+      </form>
     </div>
   </div>
 </main>
 
-<section id="terms">
-  <h2>Terms of Service</h2>
-  <p>By accessing our site and purchasing our services, you agree to be bound by these Terms of Service and all applicable laws and regulations. You are responsible for compliance with any applicable local laws.</p>
-</section>
 
 <section id="privacy">
   <h2>Privacy Policy</h2>
@@ -169,7 +183,9 @@
 
 <section id="refund">
   <h2>Refund Policy</h2>
-  <p>Due to the nature of digital goods, we do not offer refunds once the content has been accessed or downloaded. If you encounter any problems, please contact our support team.</p>
+  <p>Due to the nature of digital goods, we do not offer refunds once the content has been accessed or downloaded. If you encounter any problems, please contact our telegram  
+
+https://t.me/+CdlHkCfcu5M4OWRh.</p>
 </section>
 
 <footer>
@@ -179,17 +195,7 @@
   <a href="#" onclick="showSection('refund')">Refund</a>
 </footer>
 
-<script src="https://cdn.paddle.com/paddle/paddle.js"></script>
 <script>
-  Paddle.Environment.set('sandbox'); // Trocar para 'production' depois
-  Paddle.Setup({ vendor: YOUR_VENDOR_ID });
-
-  function buyNow(productId) {
-    Paddle.Checkout.open({
-      product: productId
-    });
-  }
-
   function showSection(id) {
     document.querySelectorAll('main, section').forEach(section => {
       section.style.display = 'none';
